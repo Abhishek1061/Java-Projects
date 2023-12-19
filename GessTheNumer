@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.util.Random;
+
+class Main {
+  public static void main(String[] args) {
+
+    Scanner input  = new Scanner(System.in);
+    Random rand = new Random();
+    int randNum = rand.nextInt(100);
+    int guessCount = 0;
+
+    while(true && guessCount < 5){
+      System.out.println("Enter the guess number: ");
+      int num = input.nextInt();
+      guessCount++;
+      if(num == randNum){
+        System.out.println("!!Congratulations!! You have guessed the correct number");
+        System.out.println("You have guessed in " + guessCount + " tries");
+        break;
+      }else if (num > randNum){
+        System.out.println("You have guessed the largest number");
+      }else if (num <randNum){
+        System.out.println("You have guessed the lower number");
+      }else{
+        System.out.println("You have guessed the wrong number");
+      }
+    }
+    System.out.println(guessCount);
+    System.out.println("You are out of trails");  
+  }
+}
